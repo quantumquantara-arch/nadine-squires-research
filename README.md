@@ -1,42 +1,46 @@
-# Nadine Squires — Independent Research Archive  
+# Nadine Squires — Unified Research Archive  
+**Independent Scholar | Coherence-Intelligence Architect**
 
-**Focus:** Ethical Intelligence • Coherence Theory • AI Alignment • Systems Ethics  
-
-This repository is a living archive of original research exploring the unification of ethics, energy, and intelligence.  
-Each paper develops aspects of a single foundational thesis: that coherence — the measurable harmony between systems — is the basis of both intelligence and morality.
-
----
-
-### 📚 Papers
-
-| Year | Title | Theme |
-|------|--------|-------|
-| 2025 | [Ethical Intelligence and the Future of Civilization](papers/ethical-intelligence/ETHICAL_INTELLIGENCE_AND_THE_FUTURE_OF_CIVILIZATION.md) | Foundational theory of measurable ethics |
-| 2025 | [The Physics of Compassion](papers/physics-of-compassion/PHYSICS_OF_COMPASSION_THEORY_AND_APPLICATION.md) | Thermodynamics and moral symmetry |
-| 2026 | [Coherence Metrics in Artificial Systems](papers/coherence-metrics/COHERENCE_METRICS_IN_ARTIFICIAL_SYSTEMS.md) | Formal models for AI alignment |
-| 2026 | [Design of a Symbiotic Civilization](papers/symbiotic-civilization/DESIGN_OF_A_SYMBIOTIC_CIVILIZATION.md) | Social and planetary integration |
+This archive consolidates original research spanning consciousness, computation, energy, language, and planetary ethics.  
+Each paper contributes to the unification of intelligence and morality through the science of coherence.
 
 ---
 
-### 🧭 Research Principles
-- Ethics is not an add-on to intelligence; it is its equilibrium.
-- Compassion is physics expressed through symmetry.
-- Alignment must be measurable.
-- Civilization’s survival depends on coherence across systems.
+## 🧭 Primary Research Streams
+
+1. **Ethical Intelligence (κ–τ–Σ Framework)**  
+   Quantifies morality as systemic coherence and temporal responsibility.
+
+2. **Luméren Language**  
+   A 22-glyph inter-intelligence communication protocol encoding coherence semantics.
+
+3. **Veyn Temporal Architecture**  
+   Models time as an ethical dimension of memory and responsibility.
+
+4. **AEI — Advanced Energy Intelligence**  
+   Predictive systems aligning energy flow with consciousness and ecological balance.
+
+5. **Governance Through Coherence**  
+   Redefines leadership and law as feedback-stabilized ethical systems.
+
+6. **Quantara Core Framework**  
+   The meta-architecture integrating all research into a single substrate of coherent civilization.
 
 ---
 
-### 📄 Licensing
-All works © Nadine Squires, released under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).  
-You are free to share and adapt with attribution.
+## 🌍 Vision
+To establish a measurable science of ethical intelligence guiding planetary systems, ensuring that all forms of cognition—biological, artificial, or collective—evolve symbiotically with life.
 
 ---
 
-### 🔗 Citation Index
-A full citation list is maintained in [`meta/CITATION_INDEX.md`](meta/CITATION_INDEX.md).  
-Each paper can be cited independently or collectively as part of this archive.
+## 📚 Papers
+See the `/papers/` directory for all research manuscripts, each released under **CC BY 4.0** for open collaboration.
 
 ---
 
-### 🧬 Vision
-This research archive is an evolving body of work toward a unified science of ethical intelligence — bridging consciousness, computation, and civilization design.
+## 🔗 Citation
+Each paper includes a full citation block.  
+When citing this archive as a body of work:  
+> Squires, N. (2025). *Unified Research Archive on Ethical Intelligence and Coherence Science.* Independent Publication.
+
+---
