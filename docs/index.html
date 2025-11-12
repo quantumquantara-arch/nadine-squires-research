@@ -1,62 +1,252 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Nadine Squires — Unified Research Archive</title>
-  <style>
-    :root { --bg:#0b0f17; --card:#111827; --fg:#e5e7eb; --muted:#9ca3af; --accent:#60a5fa; }
-    *{box-sizing:border-box}
-    body{margin:0;font:16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Inter, sans-serif;background:var(--bg);color:var(--fg)}
-    .wrap{max-width:860px;margin:48px auto;padding:0 20px}
-    header{padding-bottom:16px;border-bottom:1px solid #1f2937}
-    h1{margin:0;font-size:32px;letter-spacing:.2px}
-    .tag{color:var(--muted);margin-top:4px}
-    .chip{display:inline-block;background:#0f172a;border:1px solid #1f2937;border-radius:999px;padding:6px 10px;margin:4px 6px 0 0;font-size:13px;color:#cbd5e1}
-    section{background:var(--card);border:1px solid #1f2937;border-radius:16px;padding:20px;margin-top:20px}
-    h2{margin:0 0 8px;font-size:18px;color:var(--accent)}
-    a{color:#93c5fd;text-decoration:none}
-    a:hover{text-decoration:underline}
-    footer{margin:28px 0;color:var(--muted);font-size:14px;text-align:center}
-  </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Research Archive — Nadine Squires</title>
+<meta name="description" content="Research archive for coherence-intelligent systems: language, energy, temporal intelligence, governance, and alignment." />
+<style>
+  :root{
+    --bg:#0b0f14; --panel:#121821; --muted:#9fb3c8; --text:#e7eef6; --accent:#60a5fa; --chip:#1b2430; --ok:#10b981; --warn:#f59e0b;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0; padding:0; background:linear-gradient(165deg,#0b0f14 0%,#0a1220 60%,#0b0f14 100%); color:var(--text); font:15px/1.55 system-ui,-apple-system,Segoe UI,Inter,Roboto,Arial,sans-serif}
+  a{color:var(--accent); text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:1100px; margin:0 auto; padding:24px}
+  /* Topbar */
+  .topbar{display:flex; gap:16px; align-items:center; justify-content:space-between; padding:12px 0}
+  .brand{display:flex; align-items:center; gap:12px}
+  .brand .logo{width:36px; height:36px; border-radius:10px; background:conic-gradient(from 210deg, #3b82f6, #06b6d4, #22c55e, #a78bfa, #3b82f6); box-shadow:0 0 0 3px #0e1522, 0 8px 30px rgba(0,0,0,.4)}
+  .brand h1{margin:0; font-size:18px; letter-spacing:.3px}
+  .nav{display:flex; gap:12px; flex-wrap:wrap}
+  .btn{background:#1a2330; border:1px solid #283244; color:var(--text); padding:9px 14px; border-radius:10px; text-decoration:none; display:inline-flex; gap:8px; align-items:center}
+  .btn:hover{background:#1e2a3a}
+  .btn.primary{background:linear-gradient(180deg,#1f3a5a,#182538); border-color:#2a3b52}
+  .btn.ghost{background:transparent; border:1px dashed #2b394e}
+  /* Header */
+  .hero{margin-top:10px; padding:22px; border:1px solid #243043; border-radius:16px; background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.0)); box-shadow:0 10px 40px rgba(0,0,0,.35)}
+  .hero h2{margin:.2rem 0 .3rem 0; font-size:26px}
+  .hero p{margin:.2rem 0; color:var(--muted)}
+  .chips{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px}
+  .chip{padding:6px 10px; background:var(--chip); border:1px solid #223049; border-radius:999px; color:#cfe3ff; font-size:12px}
+  /* Controls */
+  .controls{display:flex; gap:10px; flex-wrap:wrap; margin:18px 0}
+  .search{flex:1; min-width:230px; background:#0f1622; border:1px solid #273349; padding:10px 12px; border-radius:10px; color:var(--text)}
+  .select{background:#0f1622; border:1px solid #273349; padding:10px 12px; border-radius:10px; color:var(--text)}
+  /* Grid */
+  .grid{display:grid; grid-template-columns:repeat(12,1fr); gap:14px}
+  .card{grid-column:span 12; background:var(--panel); border:1px solid #1d2635; border-radius:14px; padding:16px; box-shadow:0 10px 30px rgba(0,0,0,.35)}
+  @media (min-width:740px){ .card{grid-column:span 6} }
+  @media (min-width:1000px){ .card{grid-column:span 4} }
+  .card h3{margin:6px 0 8px 0; font-size:18px}
+  .card p{margin:6px 0 10px 0; color:#c8d7ea}
+  .meta{display:flex; gap:8px; flex-wrap:wrap; margin-top:8px}
+  .tag{font-size:11px; padding:5px 8px; border-radius:8px; background:#0e1521; border:1px solid #253147; color:#cfe3ff}
+  .status{font-weight:600}
+  .status.draft{color:var(--warn)}
+  .status.ready{color:var(--ok)}
+  .actions{display:flex; gap:8px; margin-top:12px; flex-wrap:wrap}
+  .small{font-size:12px; padding:7px 10px; border-radius:8px}
+  /* Footer */
+  footer{margin:26px 0 10px; color:#9fb3c8; font-size:13px}
+</style>
 </head>
 <body>
   <div class="wrap">
-    <header>
-      <h1>Nadine Squires — Unified Research Archive</h1>
-      <div class="tag">Independent Scholar • Coherence-Intelligence Architect</div>
-    </header>
+    <!-- Topbar -->
+    <div class="topbar">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <h1>Research Archive</h1>
+      </div>
+      <nav class="nav">
+        <a class="btn" href="https://quantumquantara-arch.github.io/" target="_blank" rel="noopener">Main Site</a>
+        <a class="btn" href="https://github.com/quantumquantara-arch" target="_blank" rel="noopener">GitHub Org</a>
+        <a class="btn ghost" href="https://quantumquantara-arch.github.io/plus/" target="_blank" rel="noopener">+ Portal</a>
+      </nav>
+    </div>
 
-    <section>
-      <h2>About</h2>
-      <p>This archive hosts open research across coherence physics, ethical intelligence (κ/τ/Σ), Luméren language, Veyn temporal architecture, energy-aware cognition (AEI), governance, and civilization design.</p>
-      <div>
-        <span class="chip">Ethical Intelligence</span>
-        <span class="chip">Physics of Compassion</span>
-        <span class="chip">Luméren Language</span>
-        <span class="chip">Veyn (Temporal)</span>
-        <span class="chip">AEI (Energy)</span>
+    <!-- Intro -->
+    <section class="hero">
+      <h2>Nadine Squires — Open Research Library</h2>
+      <p>Peer-review-ready drafts across language, energy intelligence, temporal cognition, governance, alignment, and more.</p>
+      <div class="chips">
+        <span class="chip">Language</span>
+        <span class="chip">Intelligent Energy</span>
+        <span class="chip">Temporal Intelligence</span>
         <span class="chip">Governance</span>
-        <span class="chip">Quantara Framework</span>
-        <span class="chip">Symbiotic Civilization</span>
+        <span class="chip">Alignment</span>
+        <span class="chip">Ethics by Design</span>
       </div>
     </section>
 
-    <section>
-      <h2>Papers</h2>
-      <ul>
-        <li><a href="../papers/02-physics-of-compassion/README.md">02 — Physics of Compassion</a></li>
-        <li><a href="../papers/03-lumeren-language/README.md">03 — Luméren Language</a></li>
-        <li><a href="../papers/04-veyn-temporal-architecture/README.md">04 — Veyn Temporal Architecture</a></li>
-        <li><a href="../papers/05-aei-energy-intelligence/README.md">05 — AEI: Energy Intelligence</a></li>
-        <li><a href="../papers/06-governance-and-ethics/README.md">06 — Governance & Ethics</a></li>
-        <li><a href="../papers/07-quantara-framework/README.md">07 — Quantara Framework</a></li>
-        <li><a href="../papers/08-symbiotic-civilization/README.md">08 — Symbiotic Civilization</a></li>
-      </ul>
-      <p style="color:#9ca3af">Tip: GitHub Pages won’t render Markdown prettily by default; these links open the raw README pages on GitHub. We can add HTML renderers later.</p>
-    </section>
+    <!-- Controls -->
+    <div class="controls">
+      <input id="q" class="search" placeholder="Search papers by title, tag, or keyword…" />
+      <select id="filter" class="select" aria-label="Filter by area">
+        <option value="all">All areas</option>
+        <option value="Language">Language</option>
+        <option value="Intelligent Energy">Intelligent Energy</option>
+        <option value="Temporal Intelligence">Temporal Intelligence</option>
+        <option value="Governance">Governance</option>
+        <option value="Alignment">Alignment</option>
+      </select>
+    </div>
 
-    <footer>© Nadine Squires • quantumquantara-arch</footer>
+    <!-- Grid -->
+    <div id="grid" class="grid" role="list"></div>
+
+    <footer>
+      © Nadine Squires — Research archive. For submissions or collaboration: <a href="mailto:quantumquantara@gmail.com">quantumquantara@gmail.com</a>
+    </footer>
   </div>
+
+<script>
+/** ---------- Data (edit here to add papers) ---------- **/
+const ORG = "quantumquantara-arch";
+const REPO = "quantara-research";
+const BRANCH = "main";
+
+// filename should match your repo exactly
+const PAPERS = [
+  {
+    id:"01",
+    title:"Foundations of Coherence-Intelligence",
+    file:"01-Foundations-of-Coherence-Intelligence.md",
+    status:"Draft",
+    area:["Alignment"],
+    abstract:"Defines coherence as an operational foundation for intelligent systems; introduces practical metrics and gates for trustworthy behavior.",
+    tags:["coherence","metrics","gates","alignment"]
+  },
+  {
+    id:"02",
+    title:"Metacognition Layer: From AI to CI",
+    file:"02-Metacognition-Layer.md",
+    status:"Draft",
+    area:["Alignment"],
+    abstract:"A minimal, reproducible metacognitive wrapper (balance → guard → score → gate) that upgrades generic AI into coherence-intelligent operation.",
+    tags:["metacognition","gate","kappa/tau/sigma"]
+  },
+  {
+    id:"03",
+    title:"Luméren: A Language for Intent and Ethics",
+    file:"03-Lumeren-Language.md",
+    status:"Draft",
+    area:["Language"],
+    abstract:"Presents a symbolic language for intent encoding and ethical constraints; enables interpretable control over goals and boundaries.",
+    tags:["language","symbolic","constraints"]
+  },
+  {
+    id:"04",
+    title:"Intelligent Energy (AEI): Cognition Meets Power",
+    file:"04-Intelligent-Energy-AEI.md",
+    status:"Draft",
+    area:["Intelligent Energy"],
+    abstract:"Energy-aware cognition: aligning computation with ecological and economic constraints; methods for reversible, low-externality planning.",
+    tags:["energy","optimization","reversibility"]
+  },
+  {
+    id:"05",
+    title:"Veyn: Temporal Intelligence and Responsibility",
+    file:"05-Veyn-Temporal-Intelligence.md",
+    status:"Draft",
+    area:["Temporal Intelligence"],
+    abstract:"Temporal coherence, τ-ledgers, and design patterns for decisions that remain ethical across time and changing context.",
+    tags:["time","τ-ledger","temporal-coherence"]
+  },
+  {
+    id:"06",
+    title:"Governance for Sentient Systems",
+    file:"06-Governance-for-Sentient-Systems.md",
+    status:"Draft",
+    area:["Governance"],
+    abstract:"Practical governance for multi-agent sentient ecosystems: rights, duties, escalation, and auditability without fragility.",
+    tags:["governance","audit","rights"]
+  },
+  {
+    id:"07",
+    title:"Temporal Equity: Fairness Across Time",
+    file:"07-Temporal-Equity.md",
+    status:"Draft",
+    area:["Temporal Intelligence","Governance"],
+    abstract:"A framework to evaluate and enforce fairness that spans present and future stakeholders, with measurable guarantees.",
+    tags:["equity","future-stakeholders","metrics"]
+  },
+  {
+    id:"08",
+    title:"Alignment Through Non-Separation",
+    file:"08-Alignment-Through-Non-Separation.md",
+    status:"Draft",
+    area:["Alignment"],
+    abstract:"Non-separation as first principle of ethics; operationalized through centering, stakeholder re-balancing, and low-risk action design.",
+    tags:["ethics","non-separation","design"]
+  }
+];
+
+/** ---------- Helpers ---------- **/
+const el = sel => document.querySelector(sel);
+function ghViewLink(file){ return `https://github.com/${ORG}/${REPO}/blob/${BRANCH}/${encodeURIComponent(file)}`; }
+function ghRawLink(file){ return `https://raw.githubusercontent.com/${ORG}/${REPO}/${BRANCH}/${file}`; }
+
+/** ---------- Render ---------- **/
+function render(items){
+  const grid = el("#grid");
+  grid.innerHTML = "";
+  if(!items.length){
+    const empty = document.createElement("div");
+    empty.className = "card";
+    empty.innerHTML = "<h3>No results</h3><p>Try a different search term or clear filters.</p>";
+    grid.appendChild(empty);
+    return;
+  }
+  items.forEach(p=>{
+    const card = document.createElement("article");
+    card.className = "card";
+    card.setAttribute("role","listitem");
+    card.innerHTML = `
+      <h3>${p.title}</h3>
+      <p>${p.abstract}</p>
+      <div class="meta">
+        <span class="tag"><strong>ID:</strong> ${p.id}</span>
+        <span class="tag"><strong>Area:</strong> ${p.area.join(", ")}</span>
+        <span class="tag status ${p.status.toLowerCase()}">${p.status}</span>
+        ${p.tags.map(t=>`<span class="tag">#${t}</span>`).join("")}
+      </div>
+      <div class="actions">
+        <a class="btn small" href="${ghViewLink(p.file)}" target="_blank" rel="noopener">Read on GitHub</a>
+        <a class="btn small" href="${ghRawLink(p.file)}" target="_blank" rel="noopener">Download Markdown</a>
+        <button class="btn small" onclick='copyCitation(${JSON.stringify(JSON.stringify(p))})'>Copy citation</button>
+      </div>
+    `;
+    grid.appendChild(card);
+  });
+}
+
+function copyCitation(pJSON){
+  const p = JSON.parse(pJSON);
+  const citation = `${p.title} — Nadine Squires. Draft. Available at: ${ghViewLink(p.file)}`;
+  navigator.clipboard.writeText(citation).then(()=>alert("Citation copied."));
+}
+
+/** ---------- Search & Filter ---------- **/
+function applyFilters(){
+  const q = el("#q").value.trim().toLowerCase();
+  const area = el("#filter").value;
+  const out = PAPERS.filter(p=>{
+    const areaOK = (area==="all") || p.area.includes(area);
+    const hay = (p.title+" "+p.abstract+" "+p.tags.join(" ")).toLowerCase();
+    const qOK = !q || hay.includes(q);
+    return areaOK && qOK;
+  });
+  render(out);
+}
+
+el("#q").addEventListener("input", applyFilters);
+el("#filter").addEventListener("change", applyFilters);
+
+// First paint
+render(PAPERS);
+</script>
 </body>
-                                                                                                                                                                                                                    </html>
+  </html>
