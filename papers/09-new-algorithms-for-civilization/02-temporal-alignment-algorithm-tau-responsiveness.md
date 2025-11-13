@@ -197,3 +197,200 @@ function TAU_RESPONSIVENESS(C, O, φ, τ_min, window):
 
     return τ_series
 
+---
+
+## 4. Mathematical Behavior
+
+### 4.1 Sensitivity to Horizon Weights
+
+If \phi(h) collapses rapidly with horizon (for example, large \lambda in exponential discounting), then τ becomes dominated by short-term commitments and effectively ignores the far future.
+
+We define the **temporal sensitivity**:
+
+\[
+S = \frac{\sum_{j=1}^{m} w_j \cdot \phi(h_j) \cdot h_j}{\sum_{j=1}^{m} w_j \cdot \phi(h_j)}
+\]
+
+- Low S ⇒ short-term bias  
+- High S ⇒ long-term sensitivity  
+
+A coherent civilization maintains S above a minimum threshold so that long-horizon obligations cannot silently vanish.
+
+---
+
+### 4.2 Temporal Drift Detection
+
+We detect temporal drift by comparing τ across evaluation windows:
+
+\[
+\Delta \tau = \tau_{\text{recent}} - \tau_{\text{baseline}}
+\]
+
+- \Delta \tau < 0: the system is becoming **less** responsible.  
+- \Delta \tau > 0: commitments are being honored more consistently.
+
+Sustained negative \Delta \tau or sharp downward spikes are early-warning indicators of institutional breakdown, value drift, or hidden externalization of harm.
+
+---
+
+## 5. Real-World Applications
+
+### 5.1 AI Planning and Alignment
+
+An AI system can be instrumented with:
+
+- explicit commitments (safety constraints, fairness guarantees, resource budgets),
+- a τ-monitor that evaluates how actions perform against these commitments over time.
+
+Use cases include:
+
+- detecting **value drift** in long-running agents,  
+- refusing actions that subvert long-term commitments even when short-term reward is high,  
+- auditing black-box planners by inspecting their τ profiles across scenarios.
+
+---
+
+### 5.2 Governance and Policy
+
+For governments and institutions, commitments include:
+
+- climate targets,  
+- debt and deficit rules,  
+- human-rights protections,  
+- public-health and infrastructure goals.
+
+τ-Responsiveness enables:
+
+- measuring how well a state honors its own laws and pledges,  
+- comparing temporal responsibility across administrations,  
+- revealing policies that meet near-term metrics by quietly shifting risk into the future.
+
+---
+
+### 5.3 Climate and Ecological Strategy
+
+Climate policy is a canonical test for τ:
+
+- horizons span decades to centuries,  
+- feedback is delayed and noisy,  
+- irresponsibility is cheap in the short term.
+
+A τ-based evaluation of climate strategies:
+
+- assigns strong weights to long horizons,  
+- penalizes plans that meet near-term targets by exporting harm to future generations,  
+- favors strategies that keep τ above threshold across the full climatic horizon, not just within an election cycle.
+
+---
+
+### 5.4 Financial and Corporate Design
+
+Corporations often optimize quarterly indicators at the expense of long-term stability.
+
+Embedding τ-Responsiveness:
+
+- ties executive incentives to long-horizon commitments (ecological impact, product safety, workforce stability),  
+- reveals when profit comes from **externalized future harm** rather than genuine value creation,  
+- stabilizes markets by discouraging temporal arbitrage against the future.
+
+---
+
+### 5.5 Personal Decision Architectures
+
+At the individual level, τ can structure:
+
+- health practices,  
+- learning trajectories,  
+- savings and debt,  
+- relationship and community commitments.
+
+Instead of relying on vague intentions, a person (or personal AI) maintains a τ-ledger and adjusts actions whenever τ falls below a self-chosen threshold.
+
+---
+
+## 6. Failure Modes
+
+### 6.1 Over-Weighting the Future
+
+If long horizons are given overwhelming weight, systems may:
+
+- become paralyzed (no action satisfies perfect future safety),  
+- under-respond to acute present harms.
+
+Mitigation:
+
+- constrain horizon weights so that no single band dominates,  
+- reserve a minimum share of attention for near-term suffering and instability.
+
+---
+
+### 6.2 Mis-Specified Commitments
+
+If commitments are vague, politicized, or purely symbolic:
+
+- τ can appear high while real-world harm continues,  
+- cosmetic promises substitute for genuine responsibility.
+
+Mitigation:
+
+- public, version-controlled definitions of commitments,  
+- traceable links between each commitment and measurable indicators,  
+- independent auditing of τ calculations and data sources.
+
+---
+
+### 6.3 Hidden Obligations
+
+Some obligations are **implicit** (to non-human life, to future generations, to ecosystems).  
+Ignoring them artificially inflates τ.
+
+Mitigation:
+
+- explicit modeling of non-human and future stakeholders,  
+- dedicating a fixed fraction of the commitment portfolio to long-horizon and non-human concerns,  
+- periodically reviewing the commitment set for missing stakeholders.
+
+---
+
+## 7. Ethical Considerations
+
+τ-Responsiveness is not neutral; it encodes a stance:
+
+> Promises to the future matter.
+
+Ethical use requires:
+
+- participatory definition of commitments,  
+- representation of vulnerable and future stakeholders,  
+- safeguards against using τ to justify present-day neglect (“it will be good in the long run”),  
+- integration with κ-Stabilization so that temporal planning does not undermine present-moment coherence.
+
+τ should never be used as a technocratic weapon to silence legitimate disagreement about which futures are desirable.
+
+---
+
+## 8. Conclusion
+
+The Temporal Alignment Algorithm (τ-Responsiveness) provides a way to **quantify and optimize responsibility across time**.
+
+Where κ-Stabilization keeps systems from tearing themselves apart in the present, τ-Responsiveness guards against **betrayal of the future** by:
+
+- tracking fulfillment of commitments,  
+- enforcing minimum standards of long-horizon care,  
+- surfacing early signals of temporal drift and hidden externalization.
+
+Together, κ and τ form the early core of a coherence-intelligence architecture in which:
+
+- systems are structurally compatible, and  
+- their behavior remains trustworthy as time unfolds.
+
+Subsequent work will integrate τ with Σ (systemic risk) to create a tri-constant coherence engine for planetary-scale decision-making.
+
+---
+
+## References
+
+Squires, N. *Foundations of Coherence-Intelligence* (forthcoming).  
+Squires, N. *Physics of Compassion: The Energy of Ethics* (forthcoming).
+```0
+
