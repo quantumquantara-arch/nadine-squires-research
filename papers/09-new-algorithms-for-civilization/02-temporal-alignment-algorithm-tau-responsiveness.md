@@ -10,46 +10,40 @@
 ## Abstract
 
 The Temporal Alignment Algorithm (τ-Responsiveness) formalizes **temporal responsibility** as a measurable property of intelligent systems.  
-Where κ-Stabilization focuses on structural coherence in the present, τ-Responsiveness measures how faithfully a system **honors its commitments across time** — to itself, to others, and to future states of the environment.
+Where κ-Stabilization ensures structural harmony in the present, τ-Responsiveness measures how faithfully a system **honors its commitments across time** — to itself, to others, and to future states of the world.
 
 The algorithm computes a τ-score that integrates:
 
 - fulfillment of explicit and implicit obligations,  
-- sensitivity to long-term consequences, and  
-- consistency of behavior across multiple time horizons.
+- sensitivity to long-term consequences,  
+- behavioral consistency across multiple time horizons.
 
-By embedding τ-Responsiveness into planning, governance, and AI decision systems, we obtain agents that are not only coherent **now**, but reliable **later**.  
-This paper defines the τ metric, presents the core algorithm, and outlines applications to AI alignment, policy design, climate strategy, and personal decision architectures.
+Embedding τ-Responsiveness in governance, AI planning, ecology, and personal decision architectures yields agents that are not only coherent **now**, but reliable **later**.
 
 ---
 
 ## Keywords
 
-temporal alignment, τ-responsiveness, intertemporal ethics, coherent planning, obligations, long-termism
+temporal responsibility, temporal alignment, τ-responsiveness, intertemporal ethics, coherence, long-term reliability
 
 ---
 
 ## 1. Introduction
 
-Most failures of civilization are not caused by lack of intelligence, but by **mis-timed intelligence**:
+Many systemic failures are not due to lack of intelligence — but **mis-timed intelligence**:
 
-- short-term gains that create long-term collapse,  
-- policies that postpone costs onto future generations,  
-- technologies deployed faster than societies can adapt.
+- short-term optimization that generates long-term instability,  
+- policies that defer costs to future generations,  
+- AI systems maximizing immediate reward while eroding long-horizon safety.
 
-κ-Stabilization ensures that systems are structurally compatible in the present.  
-However, a structurally coherent system can still be **temporally reckless**.
+κ-Stabilization answers: **“Are we aligned internally right now?”**  
+τ-Responsiveness answers: **“Do we remain trustworthy as time unfolds?”**
 
-The Temporal Alignment Algorithm addresses this gap.  
-It provides a way to measure and optimize how well a system:
+The Temporal Alignment Algorithm provides a quantitative method to ensure agents:
 
-1. anticipates future consequences,  
-2. honors its own commitments over time, and  
-3. maintains coherence between **what it promises** and **what it actually does**.
-
-τ-Responsiveness is thus the second foundational algorithm in the coherence-intelligence stack:  
-- κ answers: *“Are we internally compatible?”*  
-- τ answers: *“Are we trustworthy across time?”*
+1. anticipate consequences across horizons,  
+2. honor commitments consistently,  
+3. maintain coherence between *intentions* and *actions* over time.
 
 ---
 
@@ -57,103 +51,103 @@ It provides a way to measure and optimize how well a system:
 
 ### 2.1 Temporal Responsibility
 
-We define **temporal responsibility** as the degree to which an agent or system keeps its commitments across a set of time horizons.
-
 Let:
 
-- \( C = \{c_1, c_2, ..., c_m\} \) be a set of commitments (policies, promises, contracts, goals).  
-- Each commitment \( c_j \) has:
-  - a due horizon \( h_j \) (time by which its effects should be visible),  
-  - an importance weight \( w_j > 0 \),  
-  - a fulfillment score \( f_j(t) \in [0,1] \) at time \( t \).
+- \( C = \{c_1, c_2, ..., c_m\} \) be a set of commitments,  
+- each commitment \( c_j \) has:
+  - horizon \( h_j \),  
+  - importance weight \( w_j > 0 \),  
+  - fulfillment score \( f_j(t) \in [0,1] \).
 
 Then the **τ-score at time \( t \)** is:
 
 \[
-\tau(t) = \frac{\sum_{j=1}^{m} w_j \cdot f_j(t)}{\sum_{j=1}^{m} w_j}
+\tau(t) = \frac{\sum_{j=1}^{m} w_j f_j(t)}{\sum_{j=1}^{m} w_j}
 \]
 
-τ ranges from 0 (no commitments honored) to 1 (all commitments honored, in proportion to importance).
+τ ranges from:
+
+- **0** — no commitments honored  
+- **1** — all commitments honored, weighted by importance  
 
 ---
 
-### 2.2 Temporal Horizon Profile
+### 2.2 Horizon Weighting
 
-Not all horizons matter equally. A system may be:
+A system may emphasize:
 
-- myopic (over-weighting the immediate),  
-- reckless (ignoring long-term effects), or  
-- balanced (appropriately weighting near and far futures).
+- short-term objectives,  
+- long-term objectives,  
+- or a balanced horizon profile.
 
-We define a **horizon profile** \( H = \{h_1, h_2, ..., h_m\} \) and an associated **horizon weight function** \( \phi(h) \in (0,1] \) that encodes how much value the system places on different timescales.
+Define a horizon weight function:
 
-For example:
+\[
+\phi(h) \in (0,1]
+\]
 
-- exponential: \( \phi(h) = e^{- \lambda h} \) (short-term biased),  
-- linear: \( \phi(h) = 1 - \beta h \) (gradual discount until a cutoff),  
-- coherence-aware: a custom profile that ensures minimum weight for long horizons.
+Examples:
 
-The **effective importance** of a commitment becomes:
+- **Exponential:** \( \phi(h) = e^{- \lambda h} \)  
+- **Linear decay:** \( \phi(h) = 1 - \beta h \)  
+- **Coherence-aware:** custom lower bounds for distant horizons  
+
+Define **effective importance**:
 
 \[
 \tilde{w}_j = w_j \cdot \phi(h_j)
 \]
 
-and τ updates to:
+Revised τ:
 
 \[
-\tau(t) = \frac{\sum_{j=1}^{m} \tilde{w}_j \cdot f_j(t)}{\sum_{j=1}^{m} \tilde{w}_j}
+\tau(t) = \frac{\sum_{j=1}^m \tilde{w}_j f_j(t)}{\sum_{j=1}^m \tilde{w}_j}
 \]
-
-A temporally aligned system must choose a horizon profile that **does not collapse the far future to zero**.
 
 ---
 
-### 2.3 Temporal Coherence Condition
+### 2.3 Temporal Coherence
 
 A system is **temporally coherent** over window \([t_0, t_1]\) if:
 
 \[
-\tau(t) \ge \tau_{\min} \quad \forall t \in [t_0, t_1]
+\tau(t) \ge \tau_{\min}  
+\quad \forall t \in [t_0, t_1]
 \]
 
-for some threshold \( \tau_{\min} \) (e.g., 0.7).
+Typical threshold:  
+\[
+\tau_{\min} = 0.7
+\]
 
-If \( \tau(t) \) falls persistently below this threshold, the system is in **temporal incoherence**: it is not keeping its commitments, and its decisions are no longer ethically or structurally trustworthy.
+Below this threshold, the system is in **temporal incoherence** — it is not reliably honoring commitments.
 
 ---
 
-## 3. Algorithmic Specification
+## 3. Algorithm Specification
 
 ### 3.1 Inputs
 
-- Commitment set \( C \) with:
-  - identifiers,  
-  - due horizons \( h_j \),  
-  - importance weights \( w_j \).  
-
-- Observation stream \( O(t) \): data about what actually happens over time.  
-
-- Horizon weight function \( \phi(h) \).  
-
-- Temporal coherence threshold \( \tau_{\min} \).  
-
-- Evaluation window \([t_0, t_1]\).  
+- Commitment set \( C \)  
+- Observation stream \( O(t) \)  
+- Horizon weight function \( \phi(h) \)  
+- Temporal coherence threshold \( \tau_{\min} \)  
+- Evaluation window \([t_0, t_1]\)
 
 ---
 
 ### 3.2 Outputs
 
-- Time series \( \tau(t) \) over \([t_0, t_1]\).  
-- Decomposition of τ by:
-  - commitment category,  
+- τ-time series over the evaluation window  
+- Decomposition by:
+  - commitment type,  
   - horizon segment,  
-  - actor or subsystem.  
+  - subsystem or actor  
 
 - Recommended adjustments to:
-  - policy parameters,  
   - horizon weights,  
-  - commitment portfolio.
+  - policy parameters,  
+  - commitment structure  
 
 ---
 
@@ -161,10 +155,6 @@ If \( \tau(t) \) falls persistently below this threshold, the system is in **tem
 
 ```pseudo
 function TAU_RESPONSIVENESS(C, O, φ, τ_min, window):
-    # C: commitments
-    # O: observation stream
-    # φ: horizon weight function
-    # window: [t0, t1]
 
     τ_series = []
 
@@ -179,14 +169,14 @@ function TAU_RESPONSIVENESS(C, O, φ, τ_min, window):
             # Effective importance
             w_eff = w_j * φ(h_j)
 
-            # Fulfillment score at time t (0..1)
+            # Fulfillment score at time t
             f_jt = EVALUATE_FULFILLMENT(c_j, O, t)
 
             numerator += w_eff * f_jt
             denominator += w_eff
 
         if denominator == 0:
-            τ_t = 1.0   # no commitments: trivially satisfied
+            τ_t = 1.0
         else:
             τ_t = numerator / denominator
 
@@ -197,39 +187,51 @@ function TAU_RESPONSIVENESS(C, O, φ, τ_min, window):
 
     return τ_series
 
----
 
 ## 4. Mathematical Behavior
 
-### 4.1 Sensitivity to Horizon Weights
+### 4.1 Temporal Sensitivity
 
-If \phi(h) collapses rapidly with horizon (for example, large \lambda in exponential discounting), then τ becomes dominated by short-term commitments and effectively ignores the far future.
-
-We define the **temporal sensitivity**:
+Define:
 
 \[
-S = \frac{\sum_{j=1}^{m} w_j \cdot \phi(h_j) \cdot h_j}{\sum_{j=1}^{m} w_j \cdot \phi(h_j)}
+S = \frac{\sum_{j=1}^{m} \tilde{w}_j h_j}{\sum_{j=1}^{m} \tilde{w}_j}
 \]
 
-- Low S ⇒ short-term bias  
-- High S ⇒ long-term sensitivity  
+where \( \tilde{w}_j = w_j \phi(h_j) \).
 
-A coherent civilization maintains S above a minimum threshold so that long-horizon obligations cannot silently vanish.
+Interpretation:
+
+- **Low \(S\)** → short-term bias  
+- **High \(S\)** → long-term sensitivity  
+
+A coherent system maintains:
+
+\[
+S \ge S_{\min}
+\]
+
+for some chosen lower bound \(S_{\min}\), preventing the far future from being discounted to irrelevance.
 
 ---
 
-### 4.2 Temporal Drift Detection
+### 4.2 Temporal Drift
 
-We detect temporal drift by comparing τ across evaluation windows:
+Let:
+
+- \( \tau_{\text{baseline}} \) be the average τ over a reference window,  
+- \( \tau_{\text{recent}} \) be the average τ over a recent window.
+
+Define **temporal drift**:
 
 \[
 \Delta \tau = \tau_{\text{recent}} - \tau_{\text{baseline}}
 \]
 
-- \Delta \tau < 0: the system is becoming **less** responsible.  
-- \Delta \tau > 0: commitments are being honored more consistently.
+- \( \Delta \tau < 0 \): responsibility is degrading.  
+- \( \Delta \tau > 0 \): responsibility is improving.  
 
-Sustained negative \Delta \tau or sharp downward spikes are early-warning indicators of institutional breakdown, value drift, or hidden externalization of harm.
+Large negative \(\Delta \tau\) or persistent small declines signal **incipient breakdown** in temporal responsibility and should trigger policy or parameter review.
 
 ---
 
@@ -237,16 +239,16 @@ Sustained negative \Delta \tau or sharp downward spikes are early-warning 
 
 ### 5.1 AI Planning and Alignment
 
-An AI system can be instrumented with:
+Instrument an AI system with:
 
-- explicit commitments (safety constraints, fairness guarantees, resource budgets),
-- a τ-monitor that evaluates how actions perform against these commitments over time.
+- explicit commitments (safety constraints, fairness bounds, resource budgets),  
+- a τ-monitor that evaluates how well trajectories honor these commitments.
 
-Use cases include:
+Use cases:
 
-- detecting **value drift** in long-running agents,  
-- refusing actions that subvert long-term commitments even when short-term reward is high,  
-- auditing black-box planners by inspecting their τ profiles across scenarios.
+- detecting value drift in long-running agents,  
+- rejecting actions that boost short-term reward while violating long-horizon promises,  
+- comparing alternative plans by their τ-profiles over time.
 
 ---
 
@@ -254,44 +256,44 @@ Use cases include:
 
 For governments and institutions, commitments include:
 
-- climate targets,  
-- debt and deficit rules,  
+- climate and emissions targets,  
+- fiscal and debt rules,  
 - human-rights protections,  
-- public-health and infrastructure goals.
+- infrastructure and public-health guarantees.
 
 τ-Responsiveness enables:
 
-- measuring how well a state honors its own laws and pledges,  
-- comparing temporal responsibility across administrations,  
-- revealing policies that meet near-term metrics by quietly shifting risk into the future.
+- measuring how faithfully administrations honor their own laws and pledges,  
+- revealing strategies that meet near-term metrics by exporting harm into the future,  
+- comparing temporal responsibility across policies and regimes.
 
 ---
 
 ### 5.3 Climate and Ecological Strategy
 
-Climate policy is a canonical test for τ:
+Climate policy is a canonical τ-problem:
 
 - horizons span decades to centuries,  
 - feedback is delayed and noisy,  
 - irresponsibility is cheap in the short term.
 
-A τ-based evaluation of climate strategies:
+A τ-aligned climate strategy:
 
-- assigns strong weights to long horizons,  
-- penalizes plans that meet near-term targets by exporting harm to future generations,  
-- favors strategies that keep τ above threshold across the full climatic horizon, not just within an election cycle.
+- assigns significant weight to long horizons,  
+- penalizes plans that offload risk onto future generations,  
+- requires \( \tau(t) \ge \tau_{\min} \) across the full climatic horizon, not just within an election cycle.
 
 ---
 
 ### 5.4 Financial and Corporate Design
 
-Corporations often optimize quarterly indicators at the expense of long-term stability.
+Corporations typically optimize quarterly indicators.
 
 Embedding τ-Responsiveness:
 
-- ties executive incentives to long-horizon commitments (ecological impact, product safety, workforce stability),  
-- reveals when profit comes from **externalized future harm** rather than genuine value creation,  
-- stabilizes markets by discouraging temporal arbitrage against the future.
+- ties incentives to long-horizon commitments (safety, ecological impact, workforce stability),  
+- distinguishes genuine value creation from **temporal arbitrage** against the future,  
+- stabilizes markets by discouraging strategies that mine future collapse for present profit.
 
 ---
 
@@ -299,12 +301,12 @@ Embedding τ-Responsiveness:
 
 At the individual level, τ can structure:
 
-- health practices,  
-- learning trajectories,  
-- savings and debt,  
-- relationship and community commitments.
+- health and longevity practices,  
+- learning and career trajectories,  
+- savings, investment, and debt,  
+- relational and community commitments.
 
-Instead of relying on vague intentions, a person (or personal AI) maintains a τ-ledger and adjusts actions whenever τ falls below a self-chosen threshold.
+A personal (or agentic) τ-ledger tracks key commitments and prompts course corrections whenever τ falls below a chosen threshold.
 
 ---
 
@@ -312,79 +314,75 @@ Instead of relying on vague intentions, a person (or personal AI) maintains a τ
 
 ### 6.1 Over-Weighting the Future
 
-If long horizons are given overwhelming weight, systems may:
+If long horizons receive overwhelming weight:
 
-- become paralyzed (no action satisfies perfect future safety),  
-- under-respond to acute present harms.
+- systems may become paralyzed,  
+- urgent present harms may be neglected.
 
-Mitigation:
+Mitigations:
 
-- constrain horizon weights so that no single band dominates,  
-- reserve a minimum share of attention for near-term suffering and instability.
+- cap the contribution of any single horizon band,  
+- reserve a minimum portion of attention and resources for near-term suffering and instability.
 
 ---
 
 ### 6.2 Mis-Specified Commitments
 
-If commitments are vague, politicized, or purely symbolic:
+If commitments are vague, symbolic, or politically manipulated:
 
-- τ can appear high while real-world harm continues,  
-- cosmetic promises substitute for genuine responsibility.
+- τ can appear high while real harms persist,  
+- cosmetic promises substitute for real responsibility.
 
-Mitigation:
+Mitigations:
 
-- public, version-controlled definitions of commitments,  
-- traceable links between each commitment and measurable indicators,  
+- precise, measurable, version-controlled definitions of commitments,  
+- traceable links from each commitment to observable indicators,  
 - independent auditing of τ calculations and data sources.
 
 ---
 
 ### 6.3 Hidden Obligations
 
-Some obligations are **implicit** (to non-human life, to future generations, to ecosystems).  
-Ignoring them artificially inflates τ.
+Unmodeled stakeholders (future generations, non-human life, ecosystems) artificially inflate τ.
 
-Mitigation:
+Mitigations:
 
-- explicit modeling of non-human and future stakeholders,  
-- dedicating a fixed fraction of the commitment portfolio to long-horizon and non-human concerns,  
-- periodically reviewing the commitment set for missing stakeholders.
+- explicitly model non-human and future stakeholders,  
+- allocate a fixed fraction of the commitment portfolio to long-horizon and non-human concerns,  
+- periodically review and expand the commitment set.
 
 ---
 
 ## 7. Ethical Considerations
 
-τ-Responsiveness is not neutral; it encodes a stance:
+τ-Responsiveness encodes the principle that **promises to the future matter**.
 
-> Promises to the future matter.
+Ethical deployment requires:
 
-Ethical use requires:
+- participatory processes to define commitments,  
+- representation of vulnerable and future populations,  
+- transparency of τ-metrics and underlying data,  
+- safeguards against using τ as a technocratic excuse to sacrifice present groups “for the greater future good”.
 
-- participatory definition of commitments,  
-- representation of vulnerable and future stakeholders,  
-- safeguards against using τ to justify present-day neglect (“it will be good in the long run”),  
-- integration with κ-Stabilization so that temporal planning does not undermine present-moment coherence.
-
-τ should never be used as a technocratic weapon to silence legitimate disagreement about which futures are desirable.
+τ measures the *consistency* of temporal responsibility; it does not dictate which future should be chosen.  
+It should be coupled with κ-Stabilization so that long-horizon planning does not undermine present-moment coherence.
 
 ---
 
 ## 8. Conclusion
 
-The Temporal Alignment Algorithm (τ-Responsiveness) provides a way to **quantify and optimize responsibility across time**.
+The Temporal Alignment Algorithm (τ-Responsiveness) provides a concrete method to quantify and optimize **responsibility across time**.
 
-Where κ-Stabilization keeps systems from tearing themselves apart in the present, τ-Responsiveness guards against **betrayal of the future** by:
+Where:
 
-- tracking fulfillment of commitments,  
-- enforcing minimum standards of long-horizon care,  
-- surfacing early signals of temporal drift and hidden externalization.
+- **κ-Stabilization** keeps systems structurally coherent in the present,  
+- **τ-Responsiveness** guards against betrayal of the future by:
 
-Together, κ and τ form the early core of a coherence-intelligence architecture in which:
+  - tracking fulfillment of commitments,  
+  - enforcing minimum standards of long-horizon care,  
+  - surfacing early signals of temporal drift and externalized risk.
 
-- systems are structurally compatible, and  
-- their behavior remains trustworthy as time unfolds.
-
-Subsequent work will integrate τ with Σ (systemic risk) to create a tri-constant coherence engine for planetary-scale decision-making.
+Together they form two pillars of a coherence-intelligence architecture suitable for planetary-scale decision-making.
 
 ---
 
@@ -393,4 +391,3 @@ Subsequent work will integrate τ with Σ (systemic risk) to create a tri-consta
 Squires, N. *Foundations of Coherence-Intelligence* (forthcoming).  
 Squires, N. *Physics of Compassion: The Energy of Ethics* (forthcoming).
 ```0
-
