@@ -185,7 +185,7 @@ function TAU_RESPONSIVENESS(C, O, φ, τ_min, window):
         if τ_t < τ_min:
             TRIGGER_ADJUSTMENT(C, O, t, τ_t)
 
-    return τ_series
+    return τ_series \`\`\`
 
 
 ## 4. Mathematical Behavior
